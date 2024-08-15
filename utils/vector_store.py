@@ -25,10 +25,10 @@ def create_vector_store(docs, store_path: Optional[str] = None) -> FAISS:
 
     texts = text_splitter.split_documents(docs)
 
-    # Embedding object
+    # Load embeddings , any embeddings can be used
     embedding_model = OpenAIEmbeddings()
 
-    # Create the FAISS vector store
+    # Create the FAISS vector store or PineCone
     store = FAISS.from_documents(texts, embedding_model)
 
     # Save the vector store locally if a path is provided
@@ -47,10 +47,10 @@ def get_local_store(store_path: str) -> FAISS:
     Returns:
         FAISS: The loaded FAISS vector store.
     """
-    # Load the embedding model
+    # Load the embedding model , any embeddings can be used
     embedding_model = OpenAIEmbeddings()
-    
-    # Load the vector store from the local path
+     
+    # Load the vector store from the local path or PineCone
     store = FAISS.load_local(store_path, embedding_model)
 
     return store

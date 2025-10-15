@@ -1,4 +1,4 @@
-![Uploading image.png…]()
+
 
 The app folder consists of the client and server script which need to be run in the terminal , you can use the local host or any specific port number
 The crawled documents are stored in a specific folder ( Reference data for RAG)
